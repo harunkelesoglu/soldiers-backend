@@ -24,7 +24,6 @@
   "dependencies": {
     "angular": "1.x",
     "angular-ui-router": "1.X",
-    "bootstrap": "3.x",
-    "angular-google-maps": "^2.4.1"
+    "bootstrap": "3.x"
   }
 }
