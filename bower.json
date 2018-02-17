@@ -1,0 +1,28 @@
+{
+  "name": "yapsat",
+  "description": "Yapsat is a location-based platform which Housewives makes money in return makes food. You can give an order home cooking As a customer to office meeting and organizations or you can give order home cooking as a student from the nearest point or specific selling point.\tNote: food was chosen as a startup type on this project.",
+  "main": "app.js",
+  "authors": [
+    "harunkelesoglu",
+    "omeryazir"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "hackathon",
+    "locationbased",
+    "homecookie"
+  ],
+  "homepage": "https://github.com/omeryazir/soldiers-backend",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.x",
+    "angular-ui-router": "1.X"
+  }
+}
