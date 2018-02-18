@@ -57,10 +57,10 @@ body{
 .block {
   margin: 0 55px 0 55px;
   border-radius: 4px;
-  width: 280px;
+  width: 300px;
   min-height: 250px;
   background: #fff;
-  padding: 23px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,16 +73,28 @@ body{
 @media only screen and (max-width: 1700px) {
 .block {
   margin: 0;
+  width: 240px;
+
     }
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1100px) {
 .block {
-  margin: 0 0px 0 15px;
+  margin: 0;
+  width: 200px;
+
     }
 }
+
+.span3{
+  border-top: solid 10px #337ab7;
+}
+.row-fluid{
+  border-top: solid 10px #337ab7;
+}
+
 .middle img {
-  margin-left: 45px;
+  margin-left: 70px;
 }
 .bottom {
   text-align: center;
@@ -116,6 +128,10 @@ body{
   margin-bottom: 5px;
 }
 .count {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.map {
   font-size: 16px;
   margin-bottom: 5px;
 }
