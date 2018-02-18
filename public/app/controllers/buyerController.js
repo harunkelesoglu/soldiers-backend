@@ -9,7 +9,7 @@ angular.module('buyerController',['ngMap'])
            $scope.user = user.name+" "+user.surname;
            $scope.zoom = 10;
            $scope.order = user.orders[0]
-
+            debugger;
             //seller location information for render the maps
            dataProvider.getAllSeller()
                         .then((res) => {
@@ -21,10 +21,11 @@ angular.module('buyerController',['ngMap'])
                             }
                         })
                         .catch(e => console.error(e));
-                        
+
             //click event functions
             $scope.logout = function(){
                 $window.localStorage.clear();
                 $state.go('root');
             }
+           
        })
