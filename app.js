@@ -9,6 +9,12 @@ const PORT = process.env.PORT || 3000;
 
 //Middlewares
 app.use(logger('dev'));
+app.use(session({
+    secret: 'hackathon',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
 app.use(bodyParser.json());
 app.use(express.static(__dirname+"/public"));
 

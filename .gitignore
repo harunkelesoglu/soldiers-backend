@@ -1,3 +1,4 @@
 #node depencies
 /node_modules
 /public/components
+.vscode/

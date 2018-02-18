@@ -7,9 +7,8 @@ angular.module('buyerController',['ngMap'])
            $scope.lat = user.location.lat;
            $scope.lng = user.location.lng;
            $scope.user = user.name+" "+user.surname;
-           $scope.zoom = 10;
+           $scope.zoom = 12;
            $scope.order = user.orders[0]
-            debugger;
             //seller location information for render the maps
            dataProvider.getAllSeller()
                         .then((res) => {
@@ -27,5 +26,7 @@ angular.module('buyerController',['ngMap'])
                 $window.localStorage.clear();
                 $state.go('root');
             }
+
+              
            
        })

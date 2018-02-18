@@ -6,9 +6,9 @@ router.post('/authenticate',(req,res,next)=>{
     debugger;
     const where = req.body;
         User.findOne(where)
-            .then( user => { 
-                debugger;
+            .then( user => {
                 if(user){
+                    req.session.user = user;
                     res.json(user);
                 }else{
                     throw new Error("User is not found")
@@ -27,16 +27,17 @@ router.post('/seller/addOrder',(req,res,next)=>{
 });
 
 router.post('/seller/getAllSeller',(req,res,next)=>{
+
     User.find({'statu':'satici'})
         .then( user => {res.json(user)})
         .catch(next)
 })
 
-router.post('/buyer',(req,res,next)=>{
+router.post('/buyer/addOrder',(req,res,next)=>{
 
-    User.findOneAndUpdate({"username":"aysehanimi"},{$set:{orders:order}})
+    User.findOneAndUpdate({"username":"aysehanimi"},{$push:{orders:order}})
         .then( (user) => { res.json(user)})
         .catch( next );
     
-})
+});
 module.exports = router;
