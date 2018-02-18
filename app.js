@@ -3,6 +3,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const ctrlUser = require("./controllers/UserCtrl");
+const errorHandler = require("./middlewares/errorHandler");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -16,7 +17,8 @@ app.use(express.static(__dirname+"/public"));
 app.get("*",(req,res)=>{
     res.sendFile(__dirname,"index.html");
 })
-app.post("/api/*",ctrlUser);
+app.use("/api",ctrlUser);
+app.use(errorHandler);
 
 
 app.listen(PORT)
