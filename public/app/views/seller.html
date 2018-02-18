@@ -1,4 +1,123 @@
+
 <div ng-controller="sellerController">
-<h1>This is seller views</h1>
-<h2>controller name: {{name}}</h2>
-</div>
+        <div class="body-container" style="margin-top:40px">
+            <!-- left sidebar -->
+            <div class="col-md-3">
+              <!-- Profil İnfo -->
+              <div class="span3 well">
+                <center>
+                  <a href="#aboutModal" data-toggle="modal">
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="100" height="100" class="img-circle">
+                  </a>
+                  <h3>{{user}}</h3>
+      
+                </center>
+              </div>
+              <center>
+                <h4>Orders</h4>
+              </center>
+              <hr>
+              <!-- order lists -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">#</h3>
+                      <span class="pull-right">
+                              <!-- Tabs -->
+                              <ul class="nav panel-tabs">
+                                  <li class="active"><a href="#waiting" data-toggle="tab">waiting</a></li>
+                                  <li><a href="#preparing" data-toggle="tab">preparing</a></li>
+                                  <li><a href="#inRoad" data-toggle="tab">inRoad</a></li>
+                                  <li><a href="#completed" data-toggle="tab">completed</a></li>
+                              </ul>
+                      </span>
+                    </div>
+                    <div class="panel-body">
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="waiting">
+                          <div class="block">
+                            <div class="middle">
+                              <img src="https://camo.githubusercontent.com/e2a3c9a90a437976144c11bb1bcaf78200fe275c/68747470733a2f2f7777772e696d61676575706c6f61642e636f2e756b2f696d616765732f323031382f30322f31362f38323738353534312d363036632d343530362d383261652d3766656639313666613762332e706e67" width="150px" height="150px"/>
+                            </div>
+                              <div class="bottom">
+                                <div class="heading">{{order.username}}</div>
+                                <div class="info">{{order.foodName}}</div>
+                                <div class="count">Kalan: 1 / 15 (Porsiyon)</div>
+                                <div class="price">₺25.00 <span class="old-price">₺40.00</span></div>
+                                <div class="status">  <button type="button" class="btn btn-info btn-xs">{{order.status}}</button></div>
+                              </div>
+                            </div>
+                          </div>
+      
+                        <div class="tab-pane" id="preparing">
+                          <div class="block">
+                            <div class="middle">
+                              <img src="https://camo.githubusercontent.com/e2a3c9a90a437976144c11bb1bcaf78200fe275c/68747470733a2f2f7777772e696d61676575706c6f61642e636f2e756b2f696d616765732f323031382f30322f31362f38323738353534312d363036632d343530362d383261652d3766656639313666613762332e706e67" width="150px" height="150px"/>
+                            </div>
+                              <div class="bottom">
+                                <div class="heading">Order Name</div>
+                                <div class="info">Order Product Name</div>
+                                <div class="style">Patatesli / Kıymalı</div>
+                                <div class="count">Kalan: 1 / 15 (Porsiyon)</div>
+                                <div class="price">₺25.00 <span class="old-price">₺40.00</span></div>
+                                <div class="status">  <button type="button" class="btn btn-info btn-xs">Hazırlandı</button></div>
+                              </div>
+                            </div>
+                        </div>
+      
+                        <div class="tab-pane" id="inRoad">
+                          <div class="block">
+                            <div class="middle">
+                              <img src="https://camo.githubusercontent.com/e2a3c9a90a437976144c11bb1bcaf78200fe275c/68747470733a2f2f7777772e696d61676575706c6f61642e636f2e756b2f696d616765732f323031382f30322f31362f38323738353534312d363036632d343530362d383261652d3766656639313666613762332e706e67" width="150px" height="150px"/>
+                            </div>
+                              <div class="bottom">
+                                <div class="heading">Order Name</div>
+                                <div class="info">Order Product Name</div>
+                                <div class="style">Patatesli / Kıymalı</div>
+                                <div class="count">Kalan: 1 / 15 (Porsiyon)</div>
+                                <div class="price">₺25.00 <span class="old-price">₺40.00</span></div>
+                                <div class="status">  <button type="button" class="btn btn-info btn-xs">Teslim Edildi</button></div>
+                              </div>
+                            </div>
+      
+                        </div>
+      
+                        <div class="tab-pane" id="completed">
+                          <div class="block">
+                            <div class="middle">
+                              <img src="https://camo.githubusercontent.com/e2a3c9a90a437976144c11bb1bcaf78200fe275c/68747470733a2f2f7777772e696d61676575706c6f61642e636f2e756b2f696d616765732f323031382f30322f31362f38323738353534312d363036632d343530362d383261652d3766656639313666613762332e706e67" width="150px" height="150px"/>
+                            </div>
+                              <div class="bottom">
+                                <div class="heading">Order Name</div>
+                                <div class="info">Order Product Name</div>
+                                <div class="style">Patatesli / Kıymalı</div>
+                                <div class="count">Kalan: 1 / 15 (Porsiyon)</div>
+                                <div class="price">₺25.00 <span class="old-price">₺40.00</span></div>
+                                <div class="status">  <button type="button" class="btn btn-info btn-xs">Tamamlandı</button></div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>   <!-- order lists -->
+            </div>   <!-- left sidebar -->
+      
+            <!-- Localication Map Area  -->
+            <div class="col-md-9">
+                <div class="row-fluid">
+                  <div class="span8">
+                      <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
+                        <ng-map center="41.015137,28.97953" zoom={{zoom}}>
+                            <marker position="{{lat}}, {{lng}}" draggable="true"  on-dragend="getCurrentLocation()"></marker>
+                           
+                        </ng-map>
+                      </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      

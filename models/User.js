@@ -1,7 +1,24 @@
 const mongoose = require("mongoose");
 const configDB = require("./../config/db.json");
 mongoose.Promise = Promise;
-mongoose.connect(configDB.url)
-        .catch( e => console.log(e) )
-        .then( () => console.log("connected") );
+const Schema = mongoose.Schema;
+const User = mongoose.model('User',
+new Schema({
+        "name" : String,
+        "surname" : String,
+        "username" : String,
+        "email" : String,
+        "location" : {
+            "latitude" : Number,
+            "longtitude" : Number
+        },
+        "statu" : String,
+        "products" : Array,
+        "orders" : Array
+}),'users')
+        mongoose.connect(configDB.url)
+                .catch( err => console.log(err.stack))
+                .then( () => { console.log("Connected to mlab") } );
+       
 
+module.exports = User;

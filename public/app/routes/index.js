@@ -16,8 +16,7 @@
                         url: '/buyer',
                         templateUrl: '../app/views/buyer.html',
                         controller: 'buyerController'
-                  })
-            
+                  });
                   $urlRouterProvider.otherwise('/');
                   $locationProvider.html5Mode(true);
         });
