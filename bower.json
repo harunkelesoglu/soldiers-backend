@@ -24,6 +24,7 @@
   "dependencies": {
     "angular": "1.x",
     "angular-ui-router": "1.X",
-    "semantic": "semantic-ui#^2.3.0"
+    "semantic": "semantic-ui#^2.3.0",
+    "ngmap": "^1.18.4"
   }
 }
