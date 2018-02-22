@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require("./../models/User");
 
 router.post('/authenticate',(req,res,next)=>{
-    debugger;
     const where = req.body;
         User.findOne(where)
             .then( user => {
@@ -18,13 +17,19 @@ router.post('/authenticate',(req,res,next)=>{
 })
 
 router.post('/seller/addOrder',(req,res,next)=>{
-    const order = req.body;
-    
-    User.findOneAndUpdate({"username":"keles0glu"},{$push:{orders:order}})
-        .then( (user) => {res.json(user)})
+    const where = {"username":req.body.sellername}
+    let order = req.body;
+    delete order.sellername;
+    User.findOneAndUpdate(where,{$push:{orders:order}})
+        .then( (user) => { debugger;res.json(user)})
         .catch(next)
         
 });
+router.post('/seller/Orders',(req,res,next)=>{
+    User.find({"orders":{$elemMatch:req.body}})
+        .then((orders) =>{res.json(orders)})
+        .catch(next)
+})
 
 router.post('/seller/getAllSeller',(req,res,next)=>{
 
@@ -32,12 +37,16 @@ router.post('/seller/getAllSeller',(req,res,next)=>{
         .then( user => {res.json(user)})
         .catch(next)
 })
-
 router.post('/buyer/addOrder',(req,res,next)=>{
-
-    User.findOneAndUpdate({"username":"aysehanimi"},{$push:{orders:order}})
-        .then( (user) => { res.json(user)})
+    const where = {"username":req.body.username}
+    const order = req.body;
+    order.username = order.sellername;
+    delete order.sellername;
+    debugger;
+    User.findOneAndUpdate(where,{$push:{orders:order}})
+        .then( (user) => {res.json(user)})
         .catch( next );
     
-});
+})
+
 module.exports = router;

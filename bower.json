@@ -24,6 +24,6 @@
   "dependencies": {
     "angular": "1.x",
     "angular-ui-router": "1.X",
-    "bootstrap": "3.x"
+    "semantic": "semantic-ui#^2.3.0"
   }
 }

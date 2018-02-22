@@ -1,21 +1,32 @@
-<div ng-controller="loginController">
-  <!-- login modal content -->
-  <div class="container-login">
-    <img src="assets/images/login-background.jpg" alt="" />
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="text-center">Welcome to YapSat</h1>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <input type="text" class="form-control input-lg" ng-model="username" placeholder="Username" />
-          </div>
-          <div class="form-group">
-            <input type="submit" class="btn btn-block btn-lg btn-primary" ng-click="login()" value="Login" />
-          </div>
+<div ng-controller="loginController" class="login">
+  <div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+          <h2 class="ui teal image header">
+            <img src="assets/images/login.png" class="image">
+            <div class="content">
+              Log-in to your account
+            </div>
+          </h2>
+          <form class="ui large form">
+            <div class="ui stacked segment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon"></i>
+                  <input type="text" name="text" ng-model="username" placeholder="Username">
+                </div>
+              </div>
+              <div class="ui fluid large teal submit button" ng-click="login()">Login</div>
+            </div>
+      
+            <div class="ui error message"></div>
+      
+          </form>
         </div>
       </div>
+      </div>
+      <div class="four wide column"></div>
     </div>
-  </div>
 </div>

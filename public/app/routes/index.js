@@ -18,6 +18,5 @@
                         controller: 'buyerController'
                   });
                   $urlRouterProvider.otherwise('/');
-                  $locationProvider.html5Mode(true);                       
-
+                  $locationProvider.html5Mode(true); 
             })

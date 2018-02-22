@@ -4,13 +4,18 @@ angular.module('sellerController',[])
            
         //render user information 
         $scope.googleMapsUrl = "http://maps.google.com/maps/api/js?key=AIzaSyCr0NW4ERXAoCLB7i15PD7lSDw4yz59nno";
-        $scope.lat = user.location.lat;
-        $scope.lng = user.location.lng;
+        $scope.location= user.location;
         $scope.user = user.name+" "+user.surname;
         $scope.zoom = 12;
-        $scope.order = user.orders[0]
+        $scope.orders = user.orders;
         
          //click event functions
+         $scope.updateOrderStatus = function(){
+             let user = {"username":user.username}
+             dataProvider.updateOrderStatus(user)
+                         .then((res)=>{debugger;})
+                         .catch( e => console.log(e));
+         }
          $scope.logout = function(){
              $window.localStorage.clear();
              $state.go('root');

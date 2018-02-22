@@ -8,12 +8,9 @@ new Schema({
         "surname" : String,
         "username" : String,
         "email" : String,
-        "location" : {
-            "latitude" : Number,
-            "longtitude" : Number
-        },
+        "location" : Array,
         "statu" : String,
-        "products" : Array,
+        "product" : Object,
         "orders" : Array
 }),'users')
         mongoose.connect(configDB.url)

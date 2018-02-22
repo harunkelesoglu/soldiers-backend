@@ -1,151 +1,95 @@
-
-/*Panel tabs*/
-.panel-tabs {
-    position: relative;
-    bottom: 30px;
-    clear:both;
-    border-bottom: 1px solid transparent;
+html{
+  overflow: hidden;
+}
+.login {
+  margin-top:18rem;
+}
+.segment{
+  max-height: 70%;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+.map{
+  height: 80%;
+}
+.order-list{
+  margin: 7rem  0rem 5rem 2rem !important;
+}
+#directions-panel{
+  height: 70%;
+  overflow: scroll;
 }
 
-.panel-tabs > li {
-    float: left;
-    margin-bottom: -1px;
+.custom-maker {
+  display: inline-block;
+  position: relative;
+}
+.custom-maker img {
+  box-shadow: 0 0 0 5px white, 0 3px 5px 4px rgba(0, 0, 0, 0.1);
+}
+.custom-maker::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 12.6px solid white;
+  margin-left: -7px;
+  -webkit-filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.1));
+}
+.custom-maker img {
+  border-radius: 50%;
 }
 
-.panel-tabs > li > a {
-    margin-right: 2px;
-    margin-top: 4px;
-    line-height: .85;
-    border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
-    color: #ffffff;
-}
-
-.panel-tabs > li > a:hover {
-    border-color: transparent;
-    color: #ffffff;
-    background-color: transparent;
-}
-
-.panel-tabs > li.active > a,
-.panel-tabs > li.active > a:hover,
-.panel-tabs > li.active > a:focus {
-    color: #fff;
-    cursor: default;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    background-color: rgba(255,255,255, .23);
-    border-bottom-color: transparent;
-}
-body{
-  height:100%;
-  background-size: cover;
-  padding: 0;
-  margin: 0;
-}
-
-.container-login img {
-  width:100%;
+.marker {
+  margin-top: 20px;
+  margin-left: 30px;
   position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.5;
-  z-index: -1;
 }
 
-.block {
-  margin: 0 55px 0 55px;
-  border-radius: 4px;
-  width: 300px;
-  min-height: 250px;
-  background: #fff;
-  padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  box-shadow: 0 2px 55px rgba(0,0,0,0.1);
-}
-@media only screen and (max-width: 1700px) {
-.block {
-  margin: 0;
-  width: 240px;
+.pulse {
+  width: 10px;
+  height: 10px;
+  border: 5px solid rgba(79, 162, 6, 0.44);
 
-    }
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-color: rgba(79, 162, 6, 0.99);
+  z-index: 10;
+  position: fixed;
 }
 
-@media only screen and (max-width: 1100px) {
-.block {
-  margin: 0;
-  width: 200px;
-
-    }
+.dot {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  top: -25px;
+  left: -25px;
+  z-index: 2;
+  opacity: 0;
+  border: 10px solid rgba(79, 162, 6, 1);
+  background: transparent;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-animation: flash 2s ease-out;
+  -moz-animation: flash 2s ease-out;
+  animation: flash 2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
-.span3{
-  border-top: solid 10px #337ab7;
-}
-.row-fluid{
-  border-top: solid 10px #337ab7;
-}
-
-.middle img {
-  margin-left: 70px;
-}
-.bottom {
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-.heading {
-  font-size: 17px;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  letter-spacing: 0;
-}
-.info {
-  font-size: 14px;
-  color: #969696;
-  margin-bottom: 10px;
-}
-.style {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-.count {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-.map {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-.price {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-.old-price {
-  color: #f00;
-  text-decoration: line-through;
-}
-.status {
-  font-size: 16px;
-}
-.tab-pane{
-  margin:0px;
+@-moz-keyframes pulse {
+ 0% {-moz-transform: scale(0);opacity: 0.0;}
+ 25% {-moz-transform: scale(0);opacity: 0.1;}
+ 50% {-moz-transform: scale(0.1);opacity: 0.3;}
+ 75% {-moz-transform: scale(0.5);opacity: 0.5;}
+ 100% {-moz-transform: scale(1);opacity: 0.0;}
 }

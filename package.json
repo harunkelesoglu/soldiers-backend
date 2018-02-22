@@ -4,8 +4,9 @@
   "description": "Yapsat is a location-based platform which Housewives makes money in return makes food. You can give an order home cooking As a customer to office meeting and organizations or you can give order home cooking as a student from the nearest point or specific selling point.\tNote: food was chosen as a startup type on this project.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",

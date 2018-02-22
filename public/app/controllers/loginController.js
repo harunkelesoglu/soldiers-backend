@@ -1,6 +1,7 @@
 
 angular.module('loginController',[])
        .controller('loginController',function($scope,$window,$state,$http,dataProvider){
+         
             $scope.login = function(){
                 let username = $scope.username;
                 dataProvider.Auth(username)
@@ -15,7 +16,7 @@ angular.module('loginController',[])
                                     $state.go('/')
                                 }
                             })
-                            .catch( e => console.log(e));
-                
+                            .catch( e => console.log(e)); 
             }
+               
        })

@@ -1,124 +1,106 @@
 
 <div ng-controller="buyerController">
-  <div class="body-container" style="margin-top:40px">
-      <!-- left sidebar -->
-      <div class="col-md-3">
-        <!-- Profil İnfo -->
-        <div class="span3 well">
-          <center>
-            <a href="#aboutModal" data-toggle="modal">
-              <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="100" height="100" class="img-circle">
-            </a>
-            <h3>{{user}}</h3>
-            <button class="btn btn-danger" ng-click="logout()">Logout</a>
-
-          </center>
-        </div>
-        <center>
-          <h4>Orders</h4>
-        </center>
-        <hr>
-        <!-- order lists -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">#</h3>
-                <span class="pull-right">
-                        <!-- Tabs -->
-                        <ul class="nav panel-tabs">
-                            <li class="active"><a href="#waiting" data-toggle="tab">waiting</a></li>
-                            <li><a href="#preparing" data-toggle="tab">preparing</a></li>
-                            <li><a href="#inRoad" data-toggle="tab">inRoad</a></li>
-                            <li><a href="#completed" data-toggle="tab">completed</a></li>
-                        </ul>
-                </span>
-              </div>
-              <div class="panel-body">
-                <div class="tab-content">
-                  <div class="tab-pane active" id="waiting">
-                    <div class="block">
-                      <div class="middle">
-                        <img src="https://camo.githubusercontent.com/e2a3c9a90a437976144c11bb1bcaf78200fe275c/68747470733a2f2f7777772e696d61676575706c6f61642e636f2e756b2f696d616765732f323031382f30322f31362f38323738353534312d363036632d343530362d383261652d3766656639313666613762332e706e67" width="150px" height="150px"/>
-                      </div>
-                        <div class="bottom">
-                          <div class="heading">{{order.username}}</div>
-                          <div class="info">{{order.foodName}}</div>
-                          <div class="count">Kalan: 1 / 15 (Porsiyon)</div>
-                          <div class="price">₺25.00 <span class="old-price">₺40.00</span></div>
-                          <div class="status">  <button type="button" class="btn btn-info btn-xs">{{order.status}}</button></div>
+   
+        <div class="ui grid">
+          <div class="four wide column">
+              <div class="column">
+                <div class="ui segments  order-list">
+                  <div class="ui segment">
+                      <h4 class="ui header">
+                          <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" width="25" height="25" class="ui circular image">
+                          {{user}} - <button class="mini ui inverted red button" ng-click="logout()"> Oturumu Kapat</button>
+                        </h4>
+                        
+                  </div>
+                  <div class="ui segment">
+                    <div class="ui relaxed list">
+                        <div ng-repeat="order in orders" class="item">
+                          <img class="ui avatar image" src="assets/images/orders/order1.jpg">
+                          <div class="content">
+                            <a class="header">{{order.foodName}}</a>
+                            <div class="description"> <label class="ui yellow label">{{order.status}}</label>- <a><b>{{order.username}}</b></a></div>
+                          </div>
+                          <div class="ui divider"></div>
                         </div>
-                      </div>
+                        
                     </div>
-
-                  <div class="tab-pane" id="preparing">
-                    <div class="block">
-                      <div class="middle">
-                        <img src="https://camo.githubusercontent.com/e2a3c9a90a437976144c11bb1bcaf78200fe275c/68747470733a2f2f7777772e696d61676575706c6f61642e636f2e756b2f696d616765732f323031382f30322f31362f38323738353534312d363036632d343530362d383261652d3766656639313666613762332e706e67" width="150px" height="150px"/>
-                      </div>
-                        <div class="bottom">
-                          <div class="heading">Order Name</div>
-                          <div class="info">Order Product Name</div>
-                          <div class="style">Patatesli / Kıymalı</div>
-                          <div class="count">Kalan: 1 / 15 (Porsiyon)</div>
-                          <div class="price">₺25.00 <span class="old-price">₺40.00</span></div>
-                          <div class="status">  <button type="button" class="btn btn-info btn-xs">Hazırlandı</button></div>
-                        </div>
-                      </div>
-                  </div>
-
-                  <div class="tab-pane" id="inRoad">
-                    <div class="block">
-                      <div class="middle">
-                        <img src="https://camo.githubusercontent.com/e2a3c9a90a437976144c11bb1bcaf78200fe275c/68747470733a2f2f7777772e696d61676575706c6f61642e636f2e756b2f696d616765732f323031382f30322f31362f38323738353534312d363036632d343530362d383261652d3766656639313666613762332e706e67" width="150px" height="150px"/>
-                      </div>
-                        <div class="bottom">
-                          <div class="heading">Order Name</div>
-                          <div class="info">Order Product Name</div>
-                          <div class="style">Patatesli / Kıymalı</div>
-                          <div class="count">Kalan: 1 / 15 (Porsiyon)</div>
-                          <div class="price">₺25.00 <span class="old-price">₺40.00</span></div>
-                          <div class="status">  <button type="button" class="btn btn-info btn-xs">Teslim Edildi</button></div>
-                        </div>
-                      </div>
-
-                  </div>
-
-                  <div class="tab-pane" id="completed">
-                    <div class="block">
-                      <div class="middle">
-                        <img src="https://camo.githubusercontent.com/e2a3c9a90a437976144c11bb1bcaf78200fe275c/68747470733a2f2f7777772e696d61676575706c6f61642e636f2e756b2f696d616765732f323031382f30322f31362f38323738353534312d363036632d343530362d383261652d3766656639313666613762332e706e67" width="150px" height="150px"/>
-                      </div>
-                        <div class="bottom">
-                          <div class="heading">Order Name</div>
-                          <div class="info">Order Product Name</div>
-                          <div class="style">Patatesli / Kıymalı</div>
-                          <div class="count">Kalan: 1 / 15 (Porsiyon)</div>
-                          <div class="price">₺25.00 <span class="old-price">₺40.00</span></div>
-                          <div class="status">  <button type="button" class="btn btn-info btn-xs">Tamamlandı</button></div>
-                        </div>
-                      </div>
                   </div>
                 </div>
+            </div>
+          </div>
+          <div class="eight wide column">
+            <div class="row">
+              <div class="ui segment">
+                <div class="ui form">
+                  <div class="two fields">
+                    <div class="field">
+                      <select class="ui search dropdown" id="buyer" ng-model="destination">
+                        <option value="">Bir bayi seç</option>
+                        <option ng-repeat="seller in sellers" value="{{seller.location}}">{{seller.username}}</option> 
+                      </select>
+                    </div>
+                    <div class="field">
+                      <select class="ui search dropdown" id="travelmode" ng-model="travelMode" ng-init="travelMode='WALKING'">
+                        <option value="DRIVING">Arabayla</option>
+                        <option value="WALKING">Yürüyerek</option>
+                        <option value="BICYCLING">Bisikletle</option>
+                        <option value="TRANSIT">Toplu Taşıma</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="map"  map-lazy-load="https://maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places" map-lazy-load-params="{{googleMapsUrl}}">
+                <ng-map zoom="{{zoom}}" center="{{location}}">
+                  <marker position="{{location}}"></marker>
+                  <custom-marker ng-repeat="seller in sellers" id="{{seller.username}}" position="{{seller.location}}"  draggable="false" on-click="order()">
+                      <div class="custom-maker custom-maker_round" ng-click="showDetail(seller.username)">
+                          <img src="assets/images/users/{{seller.username}}.png" width="50" height="50" alt="seller" />
+                        </div>
+                  </custom-marker>
+                  <directions
+                    draggable="true"
+                    suppress-markers="true"
+                    panel="directions-panel"
+                    travel-mode="{{travelMode}}"
+                    origin="{{location}}"
+                    destination="{{destination}}">
+                  </directions>
+                </ng-map>
               </div>
             </div>
           </div>
-        </div>   <!-- order lists -->
-      </div>   <!-- left sidebar -->
-
-      <!-- Localication Map Area  -->
-      <div class="col-md-9">
-          <div class="row-fluid">
-            <div class="span8">
-                <div map-lazy-load="https://maps.google.com/maps/api/js?libraries=placeses,visualization,drawing,geometry,places" map-lazy-load-params="{{googleMapsUrl}}">
-                  <ng-map center="41.015137,28.97953" zoom={{zoom}}>
-                      <marker position="{{lat}}, {{lng}}" draggable="true"  on-dragend="getCurrentLocation()"></marker>
-                      <marker ng-repeat="seller in sellers" position="{{seller.location.lat}}, {{seller.location.lng}}" draggable="true"  on-dragend="getCurrentLocation()"></marker>
-                  </ng-map>
-                    </div>
-                </div>
+          <div class="four wide column">
+            <div class="column">
+              <div id="directions-panel" class="order-list"></div>
+            </div>
           </div>
-      </div>
-    </div>
+        </div>
+        <div ng-repeat="seller in sellers"  id="{{seller.username}}-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+                <a class="ui image label">
+                    <img src="assets/images/users/{{seller.username}}.png">
+                    {{seller.username}}
+                  </a>
+                  <div class="ui right star rating" data-rating="3"></div>
+            </div>
+            <div class="image content">
+              <div class="ui medium image">
+                <img src="assets/images/orders/order1.jpg">
+              </div>
+              <div class="description">
+                <div class="ui header" >{{seller.product.name}}</div>
+                <p>{{seller.product.info}}</p>
+              </div>
+            </div>
+            <div class="actions">
+              <button id="{{seller.username}}-order-btn" class="ui positive right labeled icon button" ng-click="order(seller)">
+                Sipariş Ver
+                <i class="shopping basket icon"></i>
+              </button>
+            </div>
+          </div>
   </div>
-</div>
+ 
+  
